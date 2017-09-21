@@ -25,7 +25,7 @@ class Base extends \Bmzy\Base{
     public function __construct($options = []) {
 		
         if (isset($options['apiPrefix'])) {
-            $this->initAppNo($options['apiPrefix']);
+            $this->apiPrefix = $options['apiPrefix'];
         }
         if (isset($options['appNo'])) {
             $this->initAppNo($options['appNo']);

@@ -22,12 +22,16 @@ class Base extends \Bmzy\Base{
      * 构造函数、配置相关参数
      * @param string $accessToken   访问接口的$accessToken
      */
-    public function __construct($appNo = '',$appKey = '') {
-        if ($appNo) {
-            $this->initAppNo($appNo);
+    public function __construct($options = []) {
+		
+        if (isset($options['apiPrefix'])) {
+            $this->initAppNo($options['apiPrefix']);
+        }
+        if (isset($options['appNo'])) {
+            $this->initAppNo($options['appNo']);
         }
         if($appKey){
-            $this->initAppKey($appKey);
+            $this->initAppKey($options['appKey']);
         }
     }
 

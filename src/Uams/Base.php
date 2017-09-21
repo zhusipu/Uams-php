@@ -30,7 +30,7 @@ class Base extends \Bmzy\Base{
         if (isset($options['appNo'])) {
             $this->initAppNo($options['appNo']);
         }
-        if($appKey){
+        if(isset($options['appKey'])){
             $this->initAppKey($options['appKey']);
         }
     }

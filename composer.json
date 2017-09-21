@@ -1,0 +1,16 @@
+{
+    "name": "zhusipu/Uams-php",
+    "description": "统一账号管理中心php扩展",
+    "license": "MIT",
+    "keywords": ["uams","php"],
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "zhusipu",
+            "email": "zhusipu123@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}

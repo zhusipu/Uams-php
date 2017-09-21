@@ -9,7 +9,7 @@
     ```js
     {
         "require" : {
-            "zhusipu/Uams-php" : "1.0.0"
+            "zhusipu/uams-php" : "~1.0.0"
         }
     }
     ```

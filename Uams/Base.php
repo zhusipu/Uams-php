@@ -3,7 +3,6 @@
 namespace Bmzy\Uams;
 
 use \Bmzy\Util\HTTPClient;
-use think\Config;
 
 /**
  * 构造用于访问API的基类
@@ -30,7 +29,6 @@ class Base extends \Bmzy\Base{
         if($appKey){
             $this->initAppKey($appKey);
         }
-        $this->apiPrefix = Config::get('ldap.apiurl');
     }
 
     /**

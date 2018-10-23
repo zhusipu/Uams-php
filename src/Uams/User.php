@@ -16,13 +16,16 @@ class User extends Base{
     const API_WDEPT = 'homev1/api/getWDept';
 
     
-    public function login($username,$password,$isuid = 0){
+    public function login($username,$password,$isuid = 0, $getcookie = 0, $ua = "", $ipaddress = ""){
         $data = [
             'username'  =>  $username,
             'password'  =>  $password,
-            'isuid' =>  $isuid
+            'isuid' =>  $isuid,
+            'getCookie' =>  $getcookie,
+            'ua'    =>  $ua,
+            'ipaddress' =>  $ipaddress
         ];
-        return $this->doPost(self::API_LOGIN, $data,[],false);
+        return $this->doPost(self::API_LOGIN, $data,[],false, true);
     }
 
     public function getUpdatePassword($returnUrl='',$personid,$password){

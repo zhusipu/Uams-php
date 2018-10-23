@@ -1,0 +1,24 @@
+[23-Oct-2018 03:22:28 UTC] PHP Warning:  include_once(../src/Autoloader.php): failed to open stream: No such file or directory in /Users/zhusipu/code/github/uams-php/test/login.php on line 8
+[23-Oct-2018 03:22:28 UTC] PHP Warning:  include_once(): Failed opening '../src/Autoloader.php' for inclusion (include_path='.:') in /Users/zhusipu/code/github/uams-php/test/login.php on line 8
+[23-Oct-2018 03:22:28 UTC] PHP Fatal error:  Uncaught Error: Class 'Bmzy\Uams\User' not found in /Users/zhusipu/code/github/uams-php/test/login.php:10
+Stack trace:
+#0 {main}
+  thrown in /Users/zhusipu/code/github/uams-php/test/login.php on line 10
+[23-Oct-2018 03:23:33 UTC] PHP Fatal error:  Uncaught Error: Class 'Bmzy\Uams\User' not found in /Users/zhusipu/code/github/uams-php/test/login.php:10
+Stack trace:
+#0 {main}
+  thrown in /Users/zhusipu/code/github/uams-php/test/login.php on line 10
+[23-Oct-2018 03:24:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Bmzy\Uams\User' not found in /Users/zhusipu/code/github/uams-php/test/login.php:12
+Stack trace:
+#0 {main}
+  thrown in /Users/zhusipu/code/github/uams-php/test/login.php on line 12
+[23-Oct-2018 03:37:35 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/User.php on line 14
+[23-Oct-2018 03:38:08 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/User.php on line 12
+[23-Oct-2018 03:39:24 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/User.php on line 12
+[23-Oct-2018 03:41:43 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/User.php on line 12
+[23-Oct-2018 03:45:52 UTC] PHP Parse error:  syntax error, unexpected 'dump' (T_STRING) in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 21
+[23-Oct-2018 03:46:00 UTC] PHP Parse error:  syntax error, unexpected 'var_dump' (T_STRING) in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 21
+[23-Oct-2018 03:46:19 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 12
+[23-Oct-2018 03:46:50 UTC] PHP Warning:  require_once(/Users/zhusipu/code/github/uams-php/src/Tests/../vendor/autoload.php): failed to open stream: No such file or directory in /Users/zhusipu/code/github/uams-php/src/Tests/BaseTest.php on line 10
+[23-Oct-2018 03:46:50 UTC] PHP Fatal error:  require_once(): Failed opening required '/Users/zhusipu/code/github/uams-php/src/Tests/../vendor/autoload.php' (include_path='.:') in /Users/zhusipu/code/github/uams-php/src/Tests/BaseTest.php on line 10
+[23-Oct-2018 04:50:52 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 11

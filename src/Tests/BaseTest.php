@@ -26,7 +26,7 @@ class BaseTest extends TestCase
         return [
             'appNo' =>  'portal-xz',
             'appKey'    =>  'YJO1Cyl4DcM67811',
-            'apiPrefix' =>  'http://127.0.0.1:8080/index/'
+            'apiPrefix' =>  'http://172.16.10.197:8080/index/'
         ];
     }
 

@@ -17,7 +17,6 @@ class UserTest extends BaseTest
         $config = $this->getConfig();
         $user = new \Bmzy\Uams\User($config);
         $result = $user->login("15010430507", "123456", 0, 1, "", "");
-
         $this->assertNotEmpty($result, false);
     }
 

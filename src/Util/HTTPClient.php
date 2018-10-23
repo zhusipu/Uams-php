@@ -193,11 +193,11 @@ class HTTPClient {
         }
 
         if (isset($apiReturnData['statusCode'])) {
-            unset($apiReturnData['statusCode']);
+            // unset($apiReturnData['statusCode']);
         }
 
         if (count($apiReturnData) > 1 && isset($apiReturnData['msg'])) {
-            unset($apiReturnData['msg']);
+            // unset($apiReturnData['msg']);
         }
 
 

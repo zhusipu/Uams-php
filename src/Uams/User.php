@@ -14,6 +14,11 @@ class User extends Base{
     const API_UPDATEPASSWORD = 'homev1/Platform/updatePassword';
     const API_WPERSON = 'homev1/api/getWPerson';
     const API_WDEPT = 'homev1/api/getWDept';
+    const API_OAUTH_AUTHORIZE = '/oauth/authorize';
+
+    public function oauthAuthorize($redirectUri = '') {
+        return $this->oauthPrefix."?response_type=code&client_id=".$this->appNo."&scope=all&redirect_uri=".urlencode($redirectUri);
+    }
 
     
     public function login($username,$password,$isuid = 0, $getcookie = 0, $ua = "", $ipaddress = ""){

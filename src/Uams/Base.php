@@ -15,6 +15,8 @@ class Base extends \Bmzy\Base{
     
     protected $apiPrefix = '';
 
+    protected $oauthPrefix = '';
+
     protected $appNo;
     protected $appKey;
 
@@ -32,6 +34,9 @@ class Base extends \Bmzy\Base{
         }
         if(isset($options['appKey'])){
             $this->initAppKey($options['appKey']);
+        }
+        if(isset($options['oauthPrefix'])){
+            $this->oauthPrefix = $options['oauthPrefix'];
         }
     }
 

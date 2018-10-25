@@ -17,7 +17,7 @@ class User extends Base{
     const API_OAUTH_AUTHORIZE = '/oauth/authorize';
 
     public function oauthAuthorize($redirectUri = '') {
-        return $this->oauthPrefix.API_OAUTH_AUTHORIZE."?response_type=code&client_id=".$this->appNo."&scope=all&redirect_uri=".urlencode($redirectUri);
+        return $this->oauthPrefix.self::API_OAUTH_AUTHORIZE."?response_type=code&client_id=".$this->appNo."&scope=all&redirect_uri=".urlencode($redirectUri);
     }
 
     

@@ -39,7 +39,7 @@ class AccessToken extends \Bmzy\Base {
         if ($res && !array_key_exists('access_token', $res)) {
             return false;
         }
-        return $res['access_token'];
+        return $res;
     }
 
     public function request($api, $params = array()) {

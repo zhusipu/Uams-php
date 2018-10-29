@@ -42,6 +42,18 @@ class AccessToken extends \Bmzy\Base {
         return $res;
     }
 
+    public function refreshToken($refreshToken) {
+        $params = [
+            'grant_type'    =>  'refresh_token',
+            'refresh_token' =>  $refreshToken
+        ];
+        $res = $this->request(self::API_GET_TOKEN, $params);
+        if ($res && !array_key_exists('access_token', $res)) {
+            return false;
+        }
+        return $res;
+    }
+
     public function request($api, $params = array()) {
         $header = [
             0   =>  'authorization:Basic '.base64_encode($this->clientId.':'.$this->clientSecret)

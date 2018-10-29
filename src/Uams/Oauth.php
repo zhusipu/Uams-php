@@ -13,6 +13,8 @@ class Oauth extends \Bmzy\Base {
 
     const API_AUTHORIZE_URL = 'oauth/authorize';
 
+    const API_LOGOUT_URL = 'logout';
+
     protected $apiPrefix = '';
 
     /**
@@ -25,6 +27,10 @@ class Oauth extends \Bmzy\Base {
 
     public function authorizeUrl($redirectUri = '') {
         return $this->apiPrefix.self::API_AUTHORIZE_URL."?response_type=code&client_id=".$this->clientId."&scope=all&redirect_uri=".urlencode($redirectUri);
+    }
+
+    public function logoutUrl($returnUrl = '') {
+        return $this->apiPrefix.self::API_LOGOUT_URL."?returnUrl=".urlencode($returnUrl);
     }
 
 }

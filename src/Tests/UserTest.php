@@ -8,6 +8,7 @@
 
 namespace Bmzy\Tests;
 
+use Bmzy\Uams\AccessToken;
 use Bmzy\Uams\User;
 
 class UserTest extends BaseTest
@@ -20,5 +21,13 @@ class UserTest extends BaseTest
 //
 //        var_dump($user->getUserInfo());
 //        var_dump($user->getErrorMsg());
+    }
+
+    public function testRefreshToken() {
+        $config = $this->getConfig();
+        $accesstoken = new AccessToken($config);
+
+        var_dump($accesstoken->refreshToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiIxNTAxMDQzMDUwNyIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiJmMDRkOThlOC1lZjlkLTRiM2YtYjU4MC05MzJjMTEyZTQ4MDUiLCJjb21wYW55IjoiYm16eW10ciIsImV4cCI6MTU0MDgwMTY3MCwiYXV0aG9yaXRpZXMiOlsiYWFhIiwiUk9MRV9VU0VSIl0sImp0aSI6ImY2ZmM2ZDhmLWVlYmMtNDYyZS04NDZkLWRmNTA5OWQ3MmI1OCIsImNsaWVudF9pZCI6ImJtenltdHIifQ.VO3v005HAVaPDnDkDQrNoPKmwacoKcziCY9gvLdGYsE"));
+        var_dump($accesstoken->getErrorMsg());
     }
 }

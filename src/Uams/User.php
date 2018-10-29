@@ -9,7 +9,7 @@ namespace Bmzy\Uams;
 
 class User extends Base {
 
-    const API_GET_USER_INFO = '/resource/user/me';
+    const API_GET_USER_INFO = 'resource/user/me';
 
     public function getUserInfo() {
         return $this->doGet(self::API_GET_USER_INFO);

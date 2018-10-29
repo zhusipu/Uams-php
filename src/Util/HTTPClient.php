@@ -45,8 +45,6 @@ class HTTPClient {
     public static function get($url, $data = array(), $header = array()) {
         $apiUrl = $url . '?' . http_build_query($data);
 
-        $header[] = 'BizMP-Version:2.0';
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $apiUrl);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
@@ -59,18 +57,16 @@ class HTTPClient {
         $res = curl_exec($ch);
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-
         $header = '';
         $body = $res;
-        if ($httpcode == 200) {
+        //if ($httpcode == 200) {
             list($header, $body) = explode("\r\n\r\n", $res, 2);
             $header = self::parseHeaders($header);
-        }
+        //}
 
         $result['info'] = $body;
         $result['header'] = $header;
         $result['status'] = $httpcode;
-
         return self::packData($result);
     }
 
@@ -83,7 +79,7 @@ class HTTPClient {
      *
      * @return array 错误时返回false;
      */
-    public static function post($url, $data, $jsonEncode = true) {
+    public static function post($url, $data, $jsonEncode = true, $header = []) {
 
         if ($jsonEncode) {
             if (is_array($data)) {
@@ -101,6 +97,7 @@ class HTTPClient {
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURLOPT_NOBODY, false);
 
         // 对上传操作做的特殊判断
@@ -124,12 +121,12 @@ class HTTPClient {
 
         $header = '';
         $body = $res;
-        if ($httpcode == 200) {
+        //if ($httpcode == 200) {
 //            list($header, $body) = explode("\r\n\r\n", $res, 2);
 //            $header = self::parseHeaders($header);
             $header = substr($res, 0, $headersize);
             $body = substr($res, $headersize);
-        }
+        //}
 
         $result['info'] = $body;
         $result['header'] = $header;
@@ -145,10 +142,10 @@ class HTTPClient {
      * @return array
      */
     private static function packData($apiReturnData) {
-        if ($apiReturnData['status'] != 200) {
-            self::setError(-1, '接口服务器连接失败.');
-            return false;
-        }
+        //if ($apiReturnData['status'] != 200) {
+            // self::setError(-1, '接口服务器连接失败.');
+            // $apiReturnData = json_decode($apiReturnData['info'], true);;
+        //}
 
         $status = $apiReturnData['status'];
         $info = $apiReturnData['info'];
@@ -192,6 +189,11 @@ class HTTPClient {
             return false;
         }
 
+        if (isset($apiReturnData['error'])) {
+            self::setError($apiReturnData["error"], $apiReturnData['error_description'], null);
+            return false;
+        }
+
         if (isset($apiReturnData['statusCode'])) {
             // unset($apiReturnData['statusCode']);
         }
@@ -204,7 +206,6 @@ class HTTPClient {
         if (count($apiReturnData) == 1) {
             $apiReturnData = reset($apiReturnData);
         }
-
         return $apiReturnData;
     }
 

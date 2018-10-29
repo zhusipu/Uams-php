@@ -15,26 +15,40 @@ class Base {
     protected $errorData = null;
 
     protected $apiPrefix = '';
-    
+
     protected $accessToken;
 
+    protected $clientId;
 
+    protected $clientSecret;
+
+    public function initConfig($config = []) {
+
+        if (array_key_exists('clientId', $config)) {
+            $this->clientId = $config['clientId'];
+        }
+        if (array_key_exists('clientSecret', $config)) {
+            $this->clientSecret = $config['clientSecret'];
+        }
+        if (array_key_exists('apiPrefix', $config)) {
+            $this->apiPrefix = $config['apiPrefix'];
+        }
+    }
     /**
      * 接口请求方法，具体接口都调用此方法进行请求
      * @param strin $api
      * @param array $params
      * @return string
      */
-    public function doGet($api, array $params = array(),$isSetAppKey = false) {
-        $auth = [
-            'appNo' => $this->appNo
-        ];
-        if($isSetAppKey){
-            $auth['appKey'] =  $this->appKey;
+    public function doGet($api, array $params = array(), $header = [])
+    {
+        if ($this->accessToken) {
+            $header[] = 'authorization:bearer ' . $this->accessToken;
         }
-        $res = HTTPClient::get($this->apiPrefix . $api, array_merge(
-            $params,$auth
-        ));
+        $res = HTTPClient::get($this->apiPrefix . $api,
+            $params,
+            $header
+        );
         if (false === $res) {
             $this->setError(-10, HTTPClient::getErrorMsg());
             return false;
@@ -42,7 +56,7 @@ class Base {
 
         return $res;
     }
-    
+
     /**
      * 接口请求方法，具体接口都调用此方法进行请求
      * @param strin $api
@@ -51,20 +65,17 @@ class Base {
      * @param bool $dataJsonEncoded post发出数据的格式是否需要json编码 默认为false表示常规,true json
      * @return string
      */
-    public function doPost($api, array $data = array(), array $params = array(),$isSetAppKey = false, $dataJsonEncoded = true) {
-        $auth = [
-            'appNo' => $this->appNo
-        ];
-        if($isSetAppKey){
-            $auth['appKey'] =  $this->appKey;
+    public function doPost($api, array $data = array(), array $params = array(), $header = [], $dataJsonEncoded = true)
+    {
+
+        if (!$this->accessToken) {
+            $header[] = 'authorization:bearer ' . $this->accessToken;
         }
-        $url = $this->apiPrefix . $api . '?' . http_build_query(array_merge(
-            $params,$auth
-        ));
-        $res = HTTPClient::post($url, $data, $dataJsonEncoded);
+        $url = $this->apiPrefix . $api . '?' . http_build_query($params);
+        $res = HTTPClient::post($url, $data, $dataJsonEncoded, $header);
 
         if (false === $res) {
-            $this->setError( HTTPClient::getErrorCode(), HTTPClient::getErrorMsg(), HTTPClient::getErrorData());
+            $this->setError(HTTPClient::getErrorCode(), HTTPClient::getErrorMsg(), HTTPClient::getErrorData());
             return false;
         }
 

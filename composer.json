@@ -21,7 +21,8 @@
             "Bmzy\\": "src"
         },
         "exclude-from-classmap": [
-            "/src/Tests/"
+            "/src/Tests/",
+            "/src/Tests/Apiv1"
         ]
     }
 }

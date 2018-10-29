@@ -22,3 +22,10 @@ Stack trace:
 [23-Oct-2018 03:46:50 UTC] PHP Warning:  require_once(/Users/zhusipu/code/github/uams-php/src/Tests/../vendor/autoload.php): failed to open stream: No such file or directory in /Users/zhusipu/code/github/uams-php/src/Tests/BaseTest.php on line 10
 [23-Oct-2018 03:46:50 UTC] PHP Fatal error:  require_once(): Failed opening required '/Users/zhusipu/code/github/uams-php/src/Tests/../vendor/autoload.php' (include_path='.:') in /Users/zhusipu/code/github/uams-php/src/Tests/BaseTest.php on line 10
 [23-Oct-2018 04:50:52 UTC] PHP Fatal error:  Class 'Bmzy\Tests\Base' not found in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 11
+[25-Oct-2018 09:54:01 UTC] PHP Fatal error:  Cannot declare class Bmzy\Tests\UserTest, because the name is already in use in /Users/zhusipu/code/github/uams-php/src/Tests/UserTest.php on line 23
+[26-Oct-2018 02:12:29 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
+[26-Oct-2018 02:12:53 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
+[26-Oct-2018 02:13:25 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
+[26-Oct-2018 02:13:47 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
+[26-Oct-2018 02:14:25 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
+[26-Oct-2018 02:14:54 UTC] PHP Fatal error:  Class 'Bmzy\Tests\BaseTest' not found in /Users/zhusipu/code/github/uams-php/src/Tests/Apiv1/UserTest.php on line 13
